@@ -1,0 +1,28 @@
+{% extends 'base_user.html' %}
+{% block title %} STALKER-HELPER | Ваши мероприятия {% endblock %}
+{% load static %}
+{% block content %}
+
+<h1>Ваши мероприятия</h1>
+<hr>
+{% for item in my_response %}
+<div class="card w-75">
+    <div class="card-body">
+        <h5 class="card-title">{{ item.name }}</h5>
+        <hr>
+        <p class="card-text">Статус мероприятия: <strong>{{ item.type_status }}</strong></p>
+        <p class="card-text">Тип мероприятия: <strong>{{ item.type_event }}</strong></p>
+
+        {% if item.description_status != '' %}
+
+        <div class="alert alert-info" role="alert">{{ item.description_status }}</div>
+        {% endif %}
+
+        <a href="{{item.id}}/update" class="btn btn-dark">Детальная информация</a>
+    </div>
+</div>
+<br>
+
+{% endfor %}
+
+{% endblock %}

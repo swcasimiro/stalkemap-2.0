@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block title %} STALKER-HELPER | FAQ{% endblock %}
+{% load static %}
+{% block content %}
+<div class="container">
+
+
+    <center>
+        <br>
+        <br>
+        <h1 class="display-4 fw-bold lh-1 text-white">FAQ</h1>
+        <br>
+    </center>
+
+
+    <div class="accordion" id="accordionPanelsStayOpenExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button bg-black fw-bold text-white" style="font-size: 22px;" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                        aria-controls="panelsStayOpen-collapseOne">
+                    ПОЧЕМУ СО МНОЙ МОГУТ НЕ СВЯЗАТЬСЯ?
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse showb-black">
+                <div class="accordion-body bg-black lead" style="color: #757575;">
+                    Если после отправки формы вы попали на эту страницу, то можете не переживать. Что ваше заявление
+                    будет не замечено.
+                    Если ваши данные корректно заполнены. То с вами точно свяжутся. Данная форма работает исключительно
+                    для фракций.
+                    Не стоит этого забывать. В ином случае - заявления будут игнорироваться.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-black text-white fw-bold" style="font-size: 22px;"
+                        type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo"
+                        aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                    КОГДА ПОЯВИТСЯ ЗАЯВЛЕНИЕ ДЛЯ ОБЫЧНЫХ ИГРОКОВ?
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse bg-black">
+                <div class="accordion-body bg-black lead" style="color: #757575;">
+                    Для этого существует команда в игре. Заявления созданы исключительно для фракций. Абсолютно всем
+                    создавать
+                    уникальные и продуманные ситуации. К сожалению - невозможно.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-black fw-bold text-white" style="font-size: 22px;"
+                        type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree"
+                        aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                    КАКОВО ПООЩЕРЕНИЕ ЗА МЕРОПРИЯТИЯ?
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse bg-black">
+                <div class="accordion-body bg-black lead" style="color: #757575;">
+                    Мы понимаем, что хорошо провести время любит каждый. Но зачастую на мероприятиях люди теряют
+                    ресурсы. И мы
+                    считаем правильным, что за прохождение определённого испытания. Игроки должны вознаграждаться.
+                    Поэтому, после
+                    того, как с вами свяжется Ивентер. Лучше всего будет обсудить то самое вознаграждение.
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+{% endblock %}

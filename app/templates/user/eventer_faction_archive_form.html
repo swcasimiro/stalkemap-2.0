@@ -1,0 +1,26 @@
+{% extends 'base_user.html' %}
+{% block title %} STALKER-HELPER | Редактирование {% endblock %}
+{% load static %}
+{% block content %}
+
+<h1>Запрос №{{ faction.id }}</h1>
+<label class="text-muted">Вы уверены, что реализовали мероприятия? Отправлять в архив можно только, после
+    проведения.</label>
+<br>
+<br>
+<strong><label>Данные:</label></strong>
+<br>
+<p><a href="{{ faction.vk }}" target="_blank">{{ faction.vk }}</a></p>
+<p class="card-text">{{ faction.description }}</p>
+<p><a href="{{ faction.faction_link }}" target="_blank">{{ faction.faction_link }}</a></p>
+<form method="post">
+    {% csrf_token %}
+    <br>
+    <button type="submit" class="btn btn-danger">Отправить в архив</button>
+    <br>
+    <br>
+
+</form>
+
+
+{% endblock %}

@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% block title %} STALKER-HELPER | {{ status_event }}{% endblock %}
+{% load static %}
+{% block content %}
+<div class="header">
+    <div class="overlay">
+        <br>
+        <br>
+        <br>
+
+        <h1 class="display-2 fw-bold lh-1 text-white test">{{ status_event|upper }}</h1>
+        <br>
+    </div>
+</div>
+
+<div class="container">
+
+    <br>
+
+
+    {% for item in events %}
+    <div class="card w-70 bg-black box">
+        <div class="card-body box">
+            <h5 class="card-title text-white display-5 fw-bold lh-1 box">{{ item.name }}</h5>
+            <p class="card-text lead" style="color: #757575;">{{ item.description }}</p>
+            <a href="{{ item.vk }}" target="_blank" class="floating-button">ВКОНТАКТЕ</a>
+        </div>
+    </div>
+    <br>
+    {% endfor %}
+
+    {% if events|length == 0 %}
+    <center>
+        <p class="card-text lead" style="color: #757575;"> В данный момент активных мероприятий — нет.</p>
+    </center>
+    {% endif %}
+</div>
+
+<style>
+
+    .floating-button {
+      text-decoration: none;
+      display: inline-block;
+      width: 140px;
+      height: 45px;
+      line-height: 45px;
+      border-radius: 10px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      text-align: center;
+      letter-spacing: 3px;
+      font-weight: 600;
+      color: #524f4e;
+      background: white;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, .1);
+      transition: .3s;
+    }
+    .floating-button:hover {
+      background: #0177ff;
+      box-shadow: 0 15px 20px #0143e5;
+      color: white;
+      transform: translateY(-7px);
+    }
+
+
+    .box {
+      animation: 3s show ease;
+    }
+
+    @keyframes show {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+
+    .header {
+        background: url('https://sun9-64.userapi.com/impg/WhWD8KQdM5pz2nxnXyzc2vM2VCoKbH15cOYzYw/QVR3v3BNuW0.jpg?size=1920x1080&quality=95&sign=8989cd284a60c441bc9d338cf233e6a6&type=album');
+        text-align: center;
+        width: 100%;
+        height: auto;
+        background-size: cover;
+        background-attachment: fixed;
+        position: relative;
+        overflow: hidden;
+        border-radius: 0 0 100% 100% / 50%;
+    }
+    .header .overlay{
+        width: 100%;
+        height: 100%;
+        padding: 50px;
+        color: #FFF;
+        text-shadow: 1px 1px 1px #333;
+
+    }
+
+    .test {
+        margin-bottom: 30px;
+    }
+
+</style>
+{% endblock %}

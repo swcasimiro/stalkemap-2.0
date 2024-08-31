@@ -1,0 +1,19 @@
+{% extends 'base_user.html' %}
+{% block title %} STALKER-HELPER | Архив {% endblock %}
+{% load static %}
+{% block content %}
+
+<h1>Ваш архив</h1>
+<hr>
+{% for item in my_response %}
+<div class="card w-75">
+    <div class="card-body">
+        <h5 class="card-title">{{ item.name }}</h5>
+        <label class="card-text">Статус заявки: <strong> {{ item.type_status }}</strong></label>
+    </div>
+</div>
+<br>
+
+{% endfor %}
+
+{% endblock %}

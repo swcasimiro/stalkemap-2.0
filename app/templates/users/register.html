@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %} STALKER-HELPER | Регистрация{% endblock %}
+{% load static %}
+{% block content %}
+<br>
+<br>
+<br>
+{% if user.is_active %}
+<div class="container">
+    <h1> Ошибка. Вы уже авторизованы!</h1>
+</div>
+{% else %}
+<div class="container">
+    <h1 class="text-white">Создание аккаунта</h1>
+    <p>Перед регистрацией заполните форму и запомните ваши данные. Полный функционал станет доступен, после выдачи
+        доступа от ассистента.</p>
+
+    <form action="." method="post">
+        {% csrf_token %}
+        {{ user_form.as_p }}
+        <p><input type="submit" class="btn btn-info text-white" value="Создание аккаунта"></p>
+    </form>
+</div>
+{% endif %}
+{% endblock %}

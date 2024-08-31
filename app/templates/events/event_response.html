@@ -1,0 +1,215 @@
+{% extends 'base.html' %}
+{% block title %} STALKER-HELPER | Заявление на мероприятия{% endblock %}
+{% load static %}
+{% block content %}
+<script src="https://js.hcaptcha.com/1/api.js?hl=ru" async defer></script>
+
+
+<div class="container">
+    <center>
+        <br>
+        <br>
+        <h1 class="display-4 fw-bold lh-1 text-white">ЗАПРОС МЕРОПРИЯТИЯ</h1>
+
+        <br>
+        <p style="color: #5264AE;">СРЕДНЕЕ ВРЕМЯ ПРОВЕРКИ ≈ 24 ЧАСА.</p>
+    </center>
+
+    <div>
+
+    </div>
+    <br>
+    <form role="form" method="post" class="post-form">
+        {% csrf_token %}
+        <div class="group">
+            {{ form.faction_link }}
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label class="label-form">Ссылка на фракцию</label>
+        </div>
+        <div class="group">
+            {{ form.description }}
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label class="label-form">Краткие пожелания</label>
+        </div>
+
+        <div class="group">
+            {{ form.vk}}
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label class="label-form">Ваш ВКонтакте</label>
+        </div>
+
+        <center>
+            <div class="h-captcha hl-ru" data-sitekey="e2aab31e-4137-46eb-b600-6271e403b266"></div>
+        </center>
+        <center>
+            <br>
+            <br>
+            <button type="submit" class="button-5"><span class="lead">
+        Отправить</span></button>
+    </form>
+    </center>
+</div>
+
+<style>
+    .button-5 {
+        text-decoration: none;
+        display: inline-block;
+        position: relative;
+        padding: 15px 30px;
+        color: #5264AE;
+        border: 1px solid black;
+        font-size: 14px;
+        font-weight: 700;
+        white-space: nowrap;
+        transition: .3s linear;
+        background-color: black;
+    }
+    .button-5:before, .button-5:after, .link-content:before, .link-content:after {
+        content: "";
+        position: absolute;
+        z-index: 1;
+        width: 15px;
+        height: 15px;
+        transition: .3s linear;
+    }
+    .button-5:before {
+        left: -1px;
+        top: -1px;
+        border-left: 1px solid #5264AE;
+        border-top: 1px solid #5264AE;
+    }
+    .button-5:after {
+        bottom: -1px;
+        right: -1px;
+        border-bottom: 1px solid #5264AE;
+        border-right: 1px solid #5264AE;
+    }
+    .link-content:after {
+        right: -1px;
+        top: -1px;
+        border-right: 1px solid #5264AE;
+        border-top: 1px solid #5264AE;
+    }
+    .link-content:before {
+        left: -1px;
+        bottom: -1px;
+        border-bottom: 1px solid #5264AE;
+        border-left: 1px solid #5264AE;
+    }
+    .button-5:hover {
+        color: #5264AE;
+        border-color: #5264AE;
+    }
+
+
+
+
+
+
+
+
+
+
+
+    .group 			  {
+      position:relative;
+      margin-bottom:45px;
+    }
+    input 				{
+      font-size:18px;
+      padding:10px 10px 10px 5px;
+      display:block;
+      width:100%;
+      border:none;
+      background:black;
+      border-bottom:1px solid #757575;
+      color: white;
+    }
+    input:focus 		{ outline:none; }
+
+    /* LABEL ======================================= */
+    .label-form 				 {
+      color:#999;
+      font-size:18px;
+      font-weight:normal;
+      position:absolute;
+      pointer-events:none;
+      left:5px;
+      top:10px;
+      transition:0.2s ease all;
+      -moz-transition:0.2s ease all;
+      -webkit-transition:0.2s ease all;
+    }
+
+    /* active state */
+    input:focus ~ label, input:valid ~ label 		{
+      top:-20px;
+      font-size:14px;
+      color:#5264AE;
+    }
+
+    /* BOTTOM BARS ================================= */
+    .bar 	{ position:relative; display:block; width:300px; }
+    .bar:before, .bar:after 	{
+      content:'';
+      height:2px;
+      width:0;
+      bottom:1px;
+      position:absolute;
+      background:#5264AE;
+      transition:0.2s ease all;
+      -moz-transition:0.2s ease all;
+      -webkit-transition:0.2s ease all;
+    }
+    .bar:before {
+      left:50%;
+    }
+    .bar:after {
+      right:50%;
+    }
+
+
+    /* HIGHLIGHTER ================================== */
+    .highlight {
+      position:absolute;
+      height:60%;
+      width:100px;
+      top:25%;
+      left:0;
+      pointer-events:none;
+      opacity:0.5;
+    }
+
+    /* active state */
+    input:focus ~ .highlight {
+      -webkit-animation:inputHighlighter 0.3s ease;
+      -moz-animation:inputHighlighter 0.3s ease;
+      animation:inputHighlighter 0.3s ease;
+    }
+
+    /* ANIMATIONS ================ */
+    @-webkit-keyframes inputHighlighter {
+        from { background:#5264AE; }
+      to 	{ width:0; background:transparent; }
+    }
+    @-moz-keyframes inputHighlighter {
+        from { background:#5264AE; }
+      to 	{ width:0; background:transparent; }
+    }
+    @keyframes inputHighlighter {
+        from { background:#5264AE; }
+      to 	{ width:0; background:transparent; }
+    }
+</style>
+
+<script
+        src="https://js.hcaptcha.com/1/api.js?hl=ru&onload=myFunction&render=explicit"
+        async
+        defer
+></script>
+
+
+{% endblock %}

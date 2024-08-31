@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>{% block title %} {% endblock %}</title>
+    <!--    <link rel="apple-touch-icon" sizes="120x120" href="{% static 'favicon/apple-touch-icon.png' %}">-->
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+    <!--    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">-->
+    <!--    <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">-->
+    <!--    <link rel="mask-icon" href="{% static 'favicon/safari-pinned-tab.svg' %}" color="#5bbad5">-->
+    <!--    <meta name="msapplication-TileColor" content="#00a300">-->
+    <!--    <meta name="theme-color" content="#000000">-->
+</head>
+<body class="bg-black">
+
+
+<nav class="navbar navbar-dark bg-black" aria-label="Dark offcanvas navbar">
+    <div class="container-fluid">
+        <a href="{% url 'index' %}"><img src="{% static 'img/index/sessioniv_logo2.png' %}" class="img-logo"
+                                         width="110"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbarDark"
+                aria-controls="offcanvasNavbarDark" aria-label="Toggle navigation">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-three-dots"
+                 viewBox="0 0 16 16">
+                <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+            </svg>
+
+        </button>
+        <div class="offcanvas offcanvas-end text-bg-black" tabindex="-1" id="offcanvasNavbarDark"
+             aria-labelledby="offcanvasNavbarDarkLabel">
+            <div class="offcanvas-header">
+                <h5 class="display-6" id="offcanvasNavbarDarkLabel">МЕНЮ</h5>
+                <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body bg-black">
+
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+
+                    <li class="lead">
+                        <label class="nav-link lead active text-white">Актуальные локации</label>
+                    </li>
+                    {% for item in location %}
+                    <li class="lead">
+                        <a class="nav-link lead active" style="color: #757575;" aria-current="page"
+                           href="{{item.get_absolute_url }}">{{ item.name }}</a>
+                    </li>
+                    {% endfor %}
+                    <li class="lead">
+                        <label class="nav-link lead active text-white">Актуальные мероприятия</label>
+                    </li>
+                    <li class="lead">
+                        <a class="nav-link lead active" style="color: #757575;" aria-current="page"
+                           href="{% url 'event-global' %}">Глобальные</a>
+                    </li>
+                    <li class="lead">
+                        <a class="nav-link lead active" style="color: #757575;" aria-current="page"
+                           href="{% url 'event-local' %}">Локальные</a>
+                    </li>
+
+                    <li class="lead">
+                        <a class="nav-link lead active" style="color: #757575;" aria-current="page"
+                           href="{% url 'event_response' %}">Запросить</a>
+                    </li>
+                </ul>
+
+
+            </div>
+            <center>
+
+        </div>
+
+    </div>
+</nav>
+
+
+{% block content %}
+
+{% endblock %}
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+<style>
+    .img-logo {
+       transition: 0.5s; /* Время эффекта */
+    }
+
+    .img-logo:hover {
+      transform: scale(1.1); /* Увеличиваем масштаб */
+    }
+
+
+    /* width */
+    ::-webkit-scrollbar {
+        width: 12px;
+    }
+
+    .hd-text {
+      font-size: 21px;
+    }
+
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: white;
+        border-radius: 5px;
+    }
+
+
+</style>
+
+</body>
+</html>

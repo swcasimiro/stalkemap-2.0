@@ -1,0 +1,24 @@
+{% extends 'base_user.html' %}
+{% block title %} STALKER-HELPER | Мои запросы {% endblock %}
+{% load static %}
+{% block content %}
+
+<h1>Ваш список запросов на мероприятия</h1>
+<hr>
+{% for item in my_response %}
+<div class="card w-75">
+    <div class="card-body">
+        <h5 class="card-title"><a href="{{ item.vk }}" target="_blank">VK</a></h5>
+        <label class="card-text">{{ item.description }}</label>
+        <br>
+        <a href="{{ item.faction_link }}" target="_blank">Ссылка на фракцию</a>
+        <br>
+        <br>
+        <a href="{{item.id}}/update" class="btn btn-danger">Архив</a>
+    </div>
+</div>
+<br>
+
+{% endfor %}
+
+{% endblock %}

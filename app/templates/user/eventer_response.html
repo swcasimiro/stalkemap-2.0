@@ -1,0 +1,17 @@
+{% extends 'base_user.html' %}
+{% block title %} STALKER-HELPER | Создание мероприятия {% endblock %}
+{% load static %}
+{% block content %}
+
+<h1>Создание мероприятия</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-dark">Создать мероприятия</button>
+    <br>
+    <br>
+
+</form>
+
+
+{% endblock %}

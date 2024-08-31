@@ -1,0 +1,32 @@
+{% extends 'base_user.html' %}
+{% block title %} STALKER-HELPER | Редактирование {{ faction.nam }}{% endblock %}
+{% load static %}
+{% block content %}
+{% if user.assist == True %}
+
+<h1>{{ faction.name }}</h1>
+<label class="text-muted">Подробная информация о мероприятие</label>
+<hr>
+<p class="card-text"><strong>Тип мероприятия: </strong> {{ faction.type_event }}</p>
+<p class="card-text"><strong>Описание:</strong> {{ faction.description }}</p>
+<p class="card-text"><strong>Ссылка на ВК евентера: </strong><a target="_blank" href="{{ faction.vk }}">{{ faction.vk
+    }}</a></p>
+<p class="card-text"><strong>Развернутое описание:</strong> {{ faction.full_description }}</p>
+<p class="card-text"><strong>Список запрашиваего имущества: </strong>{{faction.property}}</p>
+<p class="card-text"><strong>Указанный аккаунт: </strong>{{faction.nickname}}</p>
+<p class="card-text"><strong>Евентер: </strong>{{faction.user}}</p>
+<form method="post">
+    {% csrf_token %}
+    {{ form.type_status }}
+    <br>
+    {{ form.description_status }}
+    <br>
+    <button type="submit" class="btn btn-dark">Выдать вердикт</button>
+    <br>
+    <br>
+
+</form>
+
+{% endif %}
+
+{% endblock %}

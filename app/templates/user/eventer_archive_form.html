@@ -1,0 +1,32 @@
+{% extends 'base_user.html' %}
+{% block title %} STALKER-HELPER | Редактирование {{ faction.nam }}{% endblock %}
+{% load static %}
+{% block content %}
+
+<h1>{{ faction.name }}</h1>
+<label class="text-muted">Вы уверены, что реализовали мероприятия? Отправлять в архив можно только, после
+    проведения.</label>
+<hr>
+<p class="card-text"><strong>Тип мероприятия: </strong> {{ faction.type_event }}</p>
+<p class="card-text"><strong>Статус:</strong> {{ faction.type_status }}</p>
+<p class="card-text"><strong>Описание:</strong> {{ faction.description }}</p>
+<p class="card-text"><strong>Ссылка на ваш ВК: </strong><a target="_blank" href="{{ faction.vk }}">{{ faction.vk }}</a>
+</p>
+<p class="card-text"><strong>Развернутое описание для проверяющего:</strong> {{ faction.full_description }}</p>
+<p class="card-text"><strong>Список имущества, который вы запросили: </strong>{{faction.property}}</p>
+<p class="card-text"><strong>Указанный вами аккаунт: </strong>{{faction.nickname}}</p>
+{% if faction.description_status != '' %}
+<p class="card-text"><strong>Комментарий к вашему мероприятия:</strong></p>
+<div class="alert alert-info" role="alert">{{ faction.description_status }}</div>
+{% endif %}
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Отправить в архив</button>
+    <br>
+    <br>
+
+</form>
+
+
+{% endblock %}

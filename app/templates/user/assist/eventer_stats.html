@@ -1,0 +1,46 @@
+{% extends 'base_user.html' %}
+{% block title %} STALKER-HELPER | Статистика команды {% endblock %}
+{% load static %}
+{% block content %}
+{% if user.assist == True %}
+<h1>Всё статистика EVENT TEAM</h1>
+<div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
+    <div class="col">
+        <div class="row row-cols-1 row-cols-sm-2 g-4">
+            <div class="col d-flex flex-column gap-2">
+                <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
+                    <h1>{{ events|length }}</h1>
+                </div>
+                <h4 class="fw-semibold mb-0 text-body-emphasis">Создано мероприятий</h4>
+                <p class="text-body-secondary">Это число отражает количество созданных мероприятий за всё время.</p>
+            </div>
+
+            <div class="col d-flex flex-column gap-2">
+                <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
+                    <h1>{{ events_response|length }}</h1>
+                </div>
+                <h4 class="fw-semibold mb-0 text-body-emphasis">Откликов</h4>
+                <p class="text-body-secondary">Количество сколько запросов было отправлено от фракций. </p>
+            </div>
+
+            <div class="col d-flex flex-column gap-2">
+                <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
+                    <h1>{{ events_local|length }}</h1>
+                </div>
+                <h4 class="fw-semibold mb-0 text-body-emphasis">Локальные мероприятия</h4>
+                <p class="text-body-secondary">Все созданные мероприятия локального типа.</p>
+            </div>
+
+            <div class="col d-flex flex-column gap-2">
+                <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
+                    <h1>{{ events_global|length }}</h1>
+                </div>
+                <h4 class="fw-semibold mb-0 text-body-emphasis">Глобальные мероприятия</h4>
+                <p class="text-body-secondary">Все созданные мероприятия глобального типа.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endif %}
+{% endblock %}

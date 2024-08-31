@@ -1,0 +1,260 @@
+{% extends 'base.html' %}
+{% block title %} STALKER-HELPER | {{location_detail.name }}{% endblock %}
+{% load static %}
+{% block content %}
+<section class="background-image-location"
+         style="background-image: url({{ location_detail.image.url }}); background-repeat: no-repeat; height: 400px; background-size: cover;">
+    <center>
+
+        <h1 class="display-2 fw-bold lh-1 text-white">{{ location_detail.name|upper }}</h1>
+
+        <br>
+        <p class="{{ location_detail.type }} blockquote text-center">{{ location_detail.type }} зона </p>
+</section>
+
+<br>
+<br>
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-3 g-4 box">
+        {% for item in hood %}
+        <div class="col">
+            <div class="card h-100 bg-black">
+                <img style="border-radius: 10px;" src="{{ item.image.url }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title text-white">{{ item.name }}
+
+                        {% if item.popular %}
+
+                        <svg title="Эта сова знает все тайны леса!" xmlns="http://www.w3.org/2000/svg" width="22"
+                             height="22" fill="currentColor" class="bi bi-chat-heart-fill" viewBox="0 0 16 16">
+                            <path d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9.06 9.06 0 0 0 8 15Zm0-9.007c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z"/>
+                        </svg>
+
+                        {% endif %}
+                    </h5>
+
+                    <p class="card-text" style="color: #757575;">{{ item.description|truncatechars:100 }}</p>
+                    {% if item.medical %}
+                    <label class="type_med"> Медик </label>
+                    {% endif %}
+                    {% if item.technician %}
+                    <label class="type_teh"> Техник </label>
+                    {% endif %}
+                    {% if item.salesman %}
+                    <label class="type_sale"> Торговец </label>
+                    {% endif %}
+
+                    {% if item.salesman == False and item.medical == False and item.technician == False %}
+                    <label class="type_med"> Неизвестно</label>
+                    {% endif %}
+
+                    <br>
+                    <br>
+                    <a href="{% url 'hood' item.location.slug item.slug %}" class="floating-button">Подробнее</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+
+    </div>
+
+</div>
+
+
+<br>
+<br>
+
+<style>
+    .box {
+      animation: 2s show ease;
+    }
+
+    @keyframes show {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .floating-button {
+      text-decoration: none;
+      display: inline-block;
+      width: 140px;
+      height: 45px;
+      line-height: 45px;
+      border-radius: 10px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      text-align: center;
+      letter-spacing: 3px;
+      font-weight: 600;
+      color: #524f4e;
+      background: white;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, .1);
+      transition: .3s;
+    }
+    .floating-button:hover {
+      background: #2EE59D;
+      box-shadow: 0 15px 20px rgba(46, 229, 157, .4);
+      color: white;
+      transform: translateY(-7px);
+    }
+
+
+    .col {
+       transition: 0.5s; /* Время эффекта */
+    }
+
+    .col:hover {
+      transform: scale(1.05); /* Увеличиваем масштаб */
+    }
+
+
+    section{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        padding: 125px 100px;
+    }
+
+    @media (max-width: 1000px){
+
+        section{
+            padding: 100px 50px;
+        }
+
+    }
+
+
+    .background-image-location{
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+
+
+    @media (max-width: 600px){
+
+        section{
+            padding: 80px 30px;
+        }
+
+    }
+
+    section h3.title{
+        color: #414a4f;
+        text-transform: capitalize;
+        font: bold 32px 'Open Sans', sans-serif;
+        margin-bottom: 35px;
+        text-align: center;
+    }
+
+    section p{
+        max-width: 800px;
+        text-align: center;
+        margin-bottom: 35px;
+        padding: 0 20px;
+        line-height: 2;
+    }
+
+    .Красная {
+      box-shadow: 0 10px 40px 0 #b81414;
+      background: #b81414;
+      border-radius: 10px;
+      text-decoration:none:
+      transition: 0.5s;
+      color: #FFFFFF;
+      animation: shadow_red 4s infinite alternate;
+    }
+
+    @keyframes shadow_red {
+      from {
+        box-shadow: 0 0 50px 10px #b81414;
+      }
+      to {
+        box-shadow: 0 0 90px 40px #b81414;
+      }
+    }
+
+    .Желтая {
+      box-shadow: 0 10px 40px 0 #FFCF40;
+      background: #FFCF40;
+      border-radius: 10px;
+      text-decoration:none:
+      transition: 0.5s;
+      animation: shadow_yellow 4s infinite alternate;
+    }
+
+    @keyframes shadow_yellow {
+      from {
+        box-shadow: 0 0 50px 10px #FFCF40;
+      }
+      to {
+        box-shadow: 0 0 90px 40px #FFCF40;
+      }
+    }
+
+    .Зеленая {
+      box-shadow: 0 10px 40px 0 #47A76A;
+      background: #47A76A;
+      color: #FFFFFF;
+      border-radius: 10px;
+      text-decoration:none:
+      transition: 0.5s;
+      animation: shadow_green 4s infinite alternate;
+    }
+
+    @keyframes shadow_green {
+      from {
+        box-shadow: 0 0 50px 10px #47A76A;
+      }
+      to {
+        box-shadow: 0 0 90px 40px #47A76A;
+      }
+    }
+
+    .type_med {
+      background: #2F4F4F;
+      font-size: 13px;
+      border-radius: 3px;
+      padding: 1px 15px 1px 15px;
+      text-decoration:none:
+      transition: 0.5s;
+      color: #FFFFFF;
+    }
+
+
+    .type_teh {
+      background: #2F4F4F;
+      font-size: 13px;
+      border-radius: 3px;
+      padding: 1px 15px 1px 15px;
+      text-decoration:none:
+      transition: 0.5s;
+      color: #FFFFFF;
+    }
+
+    .type_sale{
+      background: #2F4F4F;
+      font-size: 13px;
+      border-radius: 3px;
+      padding: 1px 15px 1px 15px;
+      text-decoration:none:
+      transition: 0.5s;
+      color: #FFFFFF;
+    }
+
+    .type_none{
+      background: #2F4F4F;
+      font-size: 13px;
+      border-radius: 3px;
+      padding: 1px 15px 1px 15px;
+      text-decoration:none:
+      transition: 0.5s;
+      color: #FFFFFF;
+    }
+
+</style>
+{% endblock %}

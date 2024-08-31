@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %} STALKER-HELPER | Авторизация{% endblock %}
+{% load static %}
+{% block content %}
+{% if user.is_active %}
+<div class="container">
+    <h1> Ошибка. Вы уже авторизованы!</h1>
+</div>
+{% else %}
+<div class="header">
+    <div class="overlay">
+        <br>
+        <br>
+        <br>
+        <center>
+            <h1 class="display-2 fw-bold lh-1 text-white test">Авторизация</h1>
+        </center>
+        <br>
+        <br>
+    </div>
+</div>
+
+<div class="container">
+    <form method="post">
+        {% csrf_token %}
+        <div class="input-group input-group-lg">
+            {{ form.username }}
+        </div>
+        <br>
+        <div class="input-group input-group-lg">
+            {{ form.password }}
+        </div>
+        <br>
+
+        <center>
+
+            {{ form.hcaptcha }}
+
+            <button type="submit" class="btn btn-light btn-lg btn-block">Войти в систему</button>
+        </center>
+
+    </form>
+</div>
+
+{% endif %}
+{% endblock %}

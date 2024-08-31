@@ -1,0 +1,203 @@
+{% extends 'base.html' %}
+{% block title %} STALKER-HELPER | {{ hood.name }}{% endblock %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="card mb-3 bg-black" style="">
+        <div class="row g-0 bg-black">
+
+            <div class="col-md-4">
+
+                <img style="border-radius: 5px;" src="{{ hood.image.url }}" class="img-fluid rounded-start zoom box"
+                     width="800px" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <div class="card-body box">
+                        <label class="display-4 fw-bold lh-1 text-white"><label class="anim">{{ hood.name }}</label>
+                            <label class="text-dark"> — {{ hood.location }} </label></label>
+                        <div class="card-body box">
+                            <label class="lead" style="color: #757575;">{{ hood.description }}</label>
+                        </div>
+                        <p class="list-group-item bg-black" style="color: #757575;">Контролирующая фракция — <a
+                                href="{{ hood.faction_link }}" class="text-faction">{{ hood.faction_name }}</a></p>
+
+                        <p class="list-group-item bg-black text-dark"><label class="{{hood.status}} zoom">{{ hood.status
+                            }} зона</label>
+
+                            {% if hood.medical %}
+                            <label class="type_med zoom"> Медик </label>
+                            {% endif %}
+                            {% if hood.technician %}
+                            <label class="type_teh zoom"> Техник </label>
+                            {% endif %}
+                            {% if hood.salesman %}
+                            <label class="type_sale zoom"> Торговец </label>
+                            {% endif %}
+
+                        </p>
+                    </div>
+                    <div class="card-body bg-black">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<br>
+<br>
+
+<center>
+
+
+</center>
+</div>
+
+<style>
+
+    .background-image-location{
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+
+
+    .kacompos-dakucels {
+      margin: 10%;
+      text-align: center;
+    }
+
+    .constructos-knopok {
+      width: 250px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      cursor: pointer;
+
+      height: 55px;
+      text-align:center;
+      border: none;
+      background-size: 300% 100%;
+      border-radius: 10px;
+      moz-transition: all .4s ease-in-out;
+      -o-transition: all .4s ease-in-out;
+      -webkit-transition: all .4s ease-in-out;
+      transition: all .4s ease-in-out;
+    }
+
+    .constructos-knopok:hover {
+      background-position: 100% 0;
+      moz-transition: all .4s ease-in-out;
+      -o-transition: all .4s ease-in-out;
+      -webkit-transition: all .4s ease-in-out;
+      transition: all .4s ease-in-out;
+    }
+
+    .constructos-knopok:focus {
+      outline: none;
+    }
+
+
+
+    .constructos-knopok.saturateden {
+      background-image: linear-gradient(to right, #5548c1, #701c7b, #8986ea, #ea3433);
+      box-shadow: 0 4px 15px 0 rgba(110, 38, 144, 0.75);
+    }
+    .constructos-knopok.adenscarlub {
+      background-image: linear-gradient(to right, #232f3c, #3b4b5d, #205375, #43376b);
+      box-shadow: 0 4px 15px 0 rgba(49, 62, 78, 0.75);
+    }
+
+    .text-shadow {
+      text-shadow: #5548c1 1px 0 10px;
+      color: white;
+      text-decoration: none;
+    }
+
+    .text-faction {
+      text-shadow: #ffffff 1px 0 10px;
+      color: white;
+      text-decoration: none;
+    }
+
+
+    .Желтая {
+      background: #FFCF40;
+      font-size: 13px;
+      border-radius: 3px;
+      padding: 1px 15px 1px 15px;
+      text-decoration:none;
+      transition: 0.5s;
+      color: black;
+    }
+
+    .Зелёная {
+      background: #47A76A;
+      font-size: 13px;
+      border-radius: 3px;
+      padding: 1px 15px 1px 15px;
+      text-decoration:none;
+      transition: 0.5s;
+      color: #FFFFFF;
+    }
+
+    .Красная {
+      background: #b81414;
+      font-size: 13px;
+      border-radius: 3px;
+      padding: 1px 15px 1px 15px;
+      text-decoration:none;
+      transition: 0.5s;
+      color: #FFFFFF;
+    }
+
+    .type_med {
+      background: #2F4F4F;
+      font-size: 13px;
+      border-radius: 3px;
+      padding: 1px 15px 1px 15px;
+      text-decoration:none;
+      transition: 0.5s;
+      color: #FFFFFF;
+    }
+
+
+    .type_teh {
+      background: #2F4F4F;
+      font-size: 13px;
+      border-radius: 3px;
+      padding: 1px 15px 1px 15px;
+      text-decoration:none;
+      transition: 0.5s;
+      color: #FFFFFF;
+    }
+
+    .type_sale{
+      background: #2F4F4F;
+      font-size: 13px;
+      border-radius: 3px;
+      padding: 1px 15px 1px 15px;
+      text-decoration:none;
+      transition: 0.5s;
+      color: #FFFFFF;
+    }
+
+    .zoom {
+       transition: 0.5s; /* Время эффекта */
+    }
+
+    .zoom:hover {
+      transform: scale(1.07); /* Увеличиваем масштаб */
+    }
+
+
+    }
+</style>
+{% endblock %}

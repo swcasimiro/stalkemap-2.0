@@ -1,0 +1,21 @@
+{% extends 'base_user.html' %}
+{% block title %} STALKER-HELPER | Запросы фракции {% endblock %}
+{% load static %}
+{% block content %}
+
+<h1>Запросы на мероприятия</h1>
+<hr>
+{% for item in faction %}
+<div class="card w-75">
+    <div class="card-body">
+        <h5 class="card-title">Запрос №{{ item.id}}</h5>
+        <p class="card-text">{{ item.description }}</p>
+        <p><a href="{{ item.faction_link }}" target="_blank">Ссылка на фракцию</a></p>
+        <a href="eventer_response_faction/{{item.id}}/update" class="btn btn-primary">Взять мероприятия</a>
+    </div>
+</div>
+<br>
+
+{% endfor %}
+
+{% endblock %}

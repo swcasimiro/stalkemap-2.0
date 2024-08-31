@@ -1,0 +1,35 @@
+{% extends 'base_user.html' %}
+{% block title %} STALKER-HELPER | Редактирование {% endblock %}
+{% load static %}
+{% block content %}
+
+
+<h1>Запрос №{{ faction.id }}</h1>
+<label class="text-muted">После того, как вы возьмете мероприятия. Оно будет отображаться в вашей панели. После
+    выполнения
+    не забывайте убирать из активных.</label>
+<br>
+<br>
+<strong><label>Данные:</label></strong>
+<br>
+<p><a href="{{ faction.vk }}" target="_blank">{{ faction.vk }}</a></p>
+<p class="card-text">{{ faction.description }}</p>
+<p><a href="{{ faction.faction_link }}" target="_blank">{{ faction.faction_link }}</a></p>
+{% if faction.user == None %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.antispam }}
+    <label class="text-muted">ANTISPAM. Если форма заполнена некорректно. </label>
+    <br>
+    <br>
+    <button type="submit" class="btn btn-dark">Отработать мероприятия</button>
+    <br>
+    <br>
+
+</form>
+{% else %}
+<p class="text-danger">Ошибка! Запрос скорее всего уже кем-то обработан.</p>
+{% endif %}
+
+
+{% endblock %}
