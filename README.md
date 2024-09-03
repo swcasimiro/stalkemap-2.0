@@ -15,9 +15,6 @@
 </ul>
 <hr>
 <strong><p>Активация проекта:</p></strong>
-<code>python -m venv venv</code>
-<br>
-<br>
 <code>venv\Scripts\activate.bat</code>
 <br>
 <br>
