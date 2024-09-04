@@ -20,7 +20,7 @@
 
 <a>
     <img src="https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white" alt="Django Badge"/>
-    <img src="https://img.shields.io/badge/django 3.2.9-Django Rest Framework-red?style=for-the-badge&logo=django&logoColor=white" alt="Django Badge"/> 
+    <img src="https://img.shields.io/badge/django-Django Rest Framework-red?style=for-the-badge&logo=django&logoColor=white" alt="Django Badge"/> 
 </a>
 <br>
 <br>
