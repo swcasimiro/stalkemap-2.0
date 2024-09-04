@@ -1,4 +1,5 @@
-## Stalker-map2.0
+<img src="https://i.imgur.com/tdJu0X6.jpeg">
+<h1>Stalker-map 2.0</h1>
 
 
 <img src="https://img.shields.io/badge/django 3.2.9-black?style=for-the-badge&logo=django&logoColor=white" alt="Django Badge"/> 
