@@ -57,9 +57,6 @@
 <code>python manage.py migrate</code>
 <br>
 <br>
-<code>python manage.py createsuperuser</code>
-<br>
-<br>
 
 
 <strong><p>Инструкция при первом запуске:</p></strong>
